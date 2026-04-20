@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  
+  --color-bg: #FAF9F6; /* Warm alabaster/paper */
+  --color-sidebar: #FFFFFF;
+  --color-border: #EAE5DF;
+  --color-text-main: #1C1917; /* Soft rich black */
+  --color-text-sub: #78716C; /* Stone gray */
+  --color-accent: #2D2A26; /* Deep ink */
+  --color-accent-soft: #F5F2EF;
+  --color-card-bg: #FFFFFF;
+  --color-primary: #6366F1; /* Indigo touch for modern feel */
+  
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2.25rem;
+
+  --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.02);
+  --shadow-high: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+}
+
+/* Touch improvements */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  overscroll-behavior-y: none;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-text-main font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-text-sub/30;
+}
+
+.bg-grid {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, var(--color-border) 0.5px, transparent 0.5px),
+    linear-gradient(to bottom, var(--color-border) 0.5px, transparent 0.5px);
+  background-position: center;
+}
+
+.social-map-svg {
+  background-image: radial-gradient(circle at 1px 1px, #EAE5DF 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.social-map-svg path,
+.social-map-svg circle,
+.social-map-svg g {
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.4s, stroke-width 0.4s;
+}
